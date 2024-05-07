@@ -42,8 +42,37 @@ header {
   text-transform: uppercase;
 }
 
+/* ---------- PLANET PAGE ----------*/
 
-
-.grid {
-  display: grid;
+main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #070724;
+  
 }
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  width: 61rem;
+  height: 34rem;
+  background-color: #838391;
+}
+
+/* .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 61rem;
+  height: 34rem;
+}
+
+.block-1 {
+  grid-row-end: span 3;
+}
+
+.block-3 {
+  grid-column-start: -2;
+  grid-column-end: -1;
+} */
