@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export default function PlanetPage( {planets} ) {
   const { name } = useParams();
@@ -8,20 +8,44 @@ export default function PlanetPage( {planets} ) {
     <main>
      <div className='flex'>
 
-<div className='block-1' style={{backgroundColor: 'red'}}>
+<div className='img-box'>
   <img src={planet.images.planet} alt={planet.name} />
 </div>
+
+<div className='container-about-planet'>
+<div >
+  <h1 className='planet-name'>{planet.name}</h1>
+  <p className='planet-description'>{planet.overview.content}</p>
+  <p><span className='span'>Source :</span> <Link className='planet-wiki-link' to={planet.overview.source}>Wikipedia</Link></p>
+</div>
+<div className='buttons-box' >
+  <button>
+  <span>01</span>OVERVIEW
+  </button>
+  <button><span>02</span>INTERNAL STRUCTURE</button>
+  <button><span>03</span>SURFACE GEOLOGY</button>
+</div>
+</div>
+
+      </div>
+
+
+      <div className='container-planet-facts'>
 <div>
-<div className='block-2' style={{backgroundColor: 'blue'}}>
-  <h1>{planet.name}</h1>
-  <p>{planet.overview.content}</p>
-  <p>{planet.overview.source}</p>
+  <p>ROTATION TIME</p>
+  <h3>{planet.rotation}</h3>
 </div>
-<div className='block-3' style={{backgroundColor: 'green'}}>
-  <p>OVERVIEW</p>
-  <p>INTERNAL STRUCTURE</p>
-  <p>SURFACE GEOLOGY</p>
+<div>
+  <p>REVOLUTION TIME</p>
+  <h3>{planet.revolution}</h3>
 </div>
+<div>
+  <p>RADIUS</p>
+  <h3>{planet.radius}</h3>
+</div>
+<div>
+  <p>AVERAGE TEMP.</p>
+  <h3>{planet.temperature}</h3>
 </div>
 
       </div>
