@@ -10,7 +10,7 @@ export default function NavBar({ planets }) {
         <ul className='nav-planets-list'>
 {planets.map((planet, index) => (
   <li key={index}>
-  <NavLink to={`/planet/${planet.name}`}> {planet.name}</NavLink>
+  <NavLink className='planet-link' to={`/planet/${planet.name}`}> {planet.name}</NavLink>
   </li>
 ))}
 </ul>
