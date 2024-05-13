@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 export default function PlanetPage({ planets }) {
@@ -6,12 +6,9 @@ export default function PlanetPage({ planets }) {
   const planet = planets.find((planet) => planet.name === name);
 
   const [selectImageType, setImageType] = useState("overview");
-  // const [selectColor, setSelectColor] = useState(null);
-  const [buttonColors, setButtonColors] = useState({
-    overview: null,
-    internal: null,
-    geology: null,
-  });
+const [overviewColorBtn, setOverviewColorBtn] = useState(null);
+const [internalColorBtn, setInternalColorBtn] = useState(null);
+const [geologyColorBtn, setGeologyColorBtn] = useState(null);
 
   const planetColors = {
     Mercury: "#419ebb",
@@ -24,19 +21,38 @@ export default function PlanetPage({ planets }) {
     Neptune: "#2d68f0",
   };
 
-  const handleImageTypeButton = (imageType, planetName) => {
-    setImageType((prevState) => imageType);
+ useEffect(() => {
+  setImageType('overview');
+  setOverviewColorBtn(null);
+  setInternalColorBtn(null);
+  setGeologyColorBtn(null);
+ }, [name]);
 
-    // const color = planetColors[planetName];
-    // setSelectColor(color);
+  const handleImageTypeButton = (imageType) => {
+    setImageType(imageType);
 
-    const color = planetColors[planetName];
-    setButtonColors((prevColors) => ({
-      ...prevColors,
-      [imageType]: color,
-    }));
+
+    const color = planetColors[name];
+    switch (imageType) {
+      case "overview":
+        setOverviewColorBtn(color);
+        setInternalColorBtn(null);
+        setGeologyColorBtn(null);
+        break;
+      case "internal":
+        setInternalColorBtn(color);
+        setOverviewColorBtn(null);
+        setGeologyColorBtn(null);
+        break;
+      case "geology":
+        setGeologyColorBtn(color);
+        setOverviewColorBtn(null);
+        setInternalColorBtn(null);
+        break;
+      default:
+        break;
+    }
   };
-
 
 
   return (
@@ -83,21 +99,26 @@ export default function PlanetPage({ planets }) {
             </p>
           </div>
           <div className="buttons-box">
+          
             <button
-              style={ { backgroundColor: buttonColors.overview }}
-              onClick={() => handleImageTypeButton("overview", planet.name)}
+              style={ { backgroundColor: overviewColorBtn }}
+              onClick={() => handleImageTypeButton("overview")}
             >
+        
               <span>01</span>OVERVIEW
             </button>
+
+         
             <button
-            style={{ backgroundColor: buttonColors.internal }}
-              onClick={() => handleImageTypeButton("internal", planet.name)}
+            style={{ backgroundColor: internalColorBtn }}
+              onClick={() => handleImageTypeButton("internal")}
             >
               <span>02</span>INTERNAL STRUCTURE
             </button>
+
             <button
-            style={{ backgroundColor: buttonColors.geology }}
-              onClick={() => handleImageTypeButton("geology", planet.name)}
+            style={{ backgroundColor: geologyColorBtn }}
+              onClick={() => handleImageTypeButton("geology")}
             >
               <span>03</span>SURFACE GEOLOGY
             </button>
