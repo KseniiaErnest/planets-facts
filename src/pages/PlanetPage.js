@@ -28,7 +28,7 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
   setGeologyColorBtn(null);
  }, [name]);
 
-  const handleImageTypeButton = (imageType) => {
+  const handleButton = (imageType) => {
     setImageType(imageType);
 
 
@@ -102,23 +102,22 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
           
             <button
               style={ { backgroundColor: overviewColorBtn }}
-              onClick={() => handleImageTypeButton("overview")}
+              onClick={() => handleButton("overview")}
             >
-        
               <span>01</span>OVERVIEW
             </button>
 
          
             <button
             style={{ backgroundColor: internalColorBtn }}
-              onClick={() => handleImageTypeButton("internal")}
+              onClick={() => handleButton("internal")}
             >
               <span>02</span>INTERNAL STRUCTURE
             </button>
 
             <button
             style={{ backgroundColor: geologyColorBtn }}
-              onClick={() => handleImageTypeButton("geology")}
+              onClick={() => handleButton("geology")}
             >
               <span>03</span>SURFACE GEOLOGY
             </button>
@@ -148,4 +147,3 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
   );
 }
 
-// className={planet.name ? {backgroundColor: planetColors[planet.name]} : ''}
