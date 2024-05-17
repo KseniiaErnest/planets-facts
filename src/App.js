@@ -16,6 +16,7 @@ function App() {
   <Routes>
 <Route path='/planet/:name' element={ <PlanetPage planets={planets} ></PlanetPage>} />
     </Routes>
+    
     </>
   );
 }

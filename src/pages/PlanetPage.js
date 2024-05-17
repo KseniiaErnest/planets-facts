@@ -57,6 +57,7 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
 
   return (
     <main>
+    
       <div className="flex">
         <div className="img-box">
           {selectImageType === "overview" && (
@@ -124,6 +125,8 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
           </div>
         </div>
       </div>
+    
+
 
       <div className="container-planet-facts">
         <div>
