@@ -225,6 +225,10 @@ h3 {
 } */
 
 
+.toggle-menu {
+  display: none;
+}
+
 /*----------------------MOBILE-------------------------*/
 /*TABLET*/
 
@@ -289,5 +293,63 @@ width: 40%;
 
     h3 {
       font-size: 1.7rem;
+    }
+  }
+
+  @media only screen 
+  /* and (min-device-width: 48em)  */
+  and (max-device-width: 38em) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    html {
+      font-size: 80%;
+      
+    }
+
+  body.no-scroll {
+    overflow: hidden;
+  }
+
+    h3 {
+      font-size: 1.7rem;
+    }
+
+    .toggle-menu {
+      display: block;
+    }
+
+    .nav-planets-list.hidden {
+      display: none;
+    }
+
+    header {
+      height: 5rem;
+      position: relative;
+    }
+
+    .navbar {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .nav-planets-list.mobile-menu {
+      position: fixed;
+      top: 5rem;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 5rem);  
+      flex-direction: column;
+      margin: 0;
+      background-color: #070724;
+      padding-top: 3rem;
+      padding-left: 3rem;
+      z-index: 10;
+      
+    }
+
+    .nav-planets-list.mobile-menu li {
+      display: flex;
+      justify-content: space-between;
+      list-style: circle;
     }
   }
