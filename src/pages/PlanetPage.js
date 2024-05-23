@@ -61,17 +61,21 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
   };
 
 
-  return (
-    <main>
 
-{isMobile && (
-        <ButtonsBox className="buttons-box-mobile"
-          overviewColorBtn={overviewColorBtn}
-          internalColorBtn={internalColorBtn}
-          geologyColorBtn={geologyColorBtn}
-          handleButton={handleButton}
-        />
-      )}
+  return (
+    <>
+    {isMobile && (
+      <ButtonsBox className="buttons-box-mobile"
+        overviewColorBtn={overviewColorBtn}
+        internalColorBtn={internalColorBtn}
+        geologyColorBtn={geologyColorBtn}
+        handleButton={handleButton}
+        overviewText='OVERVIEW'
+        internalText='STRUCTURE'
+        geologyText='GEOLOGY'
+      />
+    )}
+    <main>
     
       <div className="flex">
 
@@ -148,6 +152,9 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
               internalColorBtn={internalColorBtn}
               geologyColorBtn={geologyColorBtn}
               handleButton={handleButton}
+              overviewText='OVERVIEW'
+          internalText='INTERNAL STRUCTURE'
+          geologyText='SURFACE GEOLOGY'
             />
           )}
 
@@ -173,6 +180,9 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
         </div>
       </div>
     </main>
+    </>
   );
+
+  
 }
 

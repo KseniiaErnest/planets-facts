@@ -411,6 +411,22 @@ width: 40%;
     }
 
     .buttons-box-mobile {
-     
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     border-bottom: 1px solid #838391;
+     padding: 0 2.5rem 0 2.5rem;
+    }
+    .buttons-box-mobile button {
+      padding: 1.5rem 0rem 1.5rem 0rem;
+      background-color: #070724;
+      color: #838391;
+      border: none;
+      border-bottom: 4px solid #ffffff;
+      font-family: League Spartan;
+      font-weight: bold;
+    }
+    .buttons-box-mobile button span {
+      display: none;
     }
   }
