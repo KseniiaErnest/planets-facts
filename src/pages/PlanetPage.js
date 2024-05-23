@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import useScreenWidth from "../hooks/useScreenWidth";
+import ButtonsBox from "../components/ButtonsBox";
 
 export default function PlanetPage({ planets }) {
   const { name } = useParams();
   const planet = planets.find((planet) => planet.name === name);
 
-  const [selectImageType, setImageType] = useState("overview");
+const [selectImageType, setImageType] = useState("overview");
 const [overviewColorBtn, setOverviewColorBtn] = useState(null);
 const [internalColorBtn, setInternalColorBtn] = useState(null);
 const [geologyColorBtn, setGeologyColorBtn] = useState(null);
+
 
   const planetColors = {
     Mercury: "#419ebb",
@@ -20,6 +23,9 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
     Uranus: "#1ec2a4",
     Neptune: "#2d68f0",
   };
+
+  const screenWidth = useScreenWidth();
+  const isMobile = screenWidth <= 608;
 
  useEffect(() => {
   setImageType('overview');
@@ -57,8 +63,18 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
 
   return (
     <main>
+
+{isMobile && (
+        <ButtonsBox className="buttons-box-mobile"
+          overviewColorBtn={overviewColorBtn}
+          internalColorBtn={internalColorBtn}
+          geologyColorBtn={geologyColorBtn}
+          handleButton={handleButton}
+        />
+      )}
     
       <div className="flex">
+
         <div className="img-box">
           {selectImageType === "overview" && (
             <img src={planet.images.planet} alt={planet.name} />
@@ -87,7 +103,7 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
             </>
           )}
         </div>
-
+        
         <div className="container-about-planet">
           <div>
             <h1 className="planet-name">{planet.name}</h1>
@@ -99,7 +115,9 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
               </Link>
             </p>
           </div>
-          <div className="buttons-box">
+
+
+          {/* <div className="buttons-box">
           
             <button
               style={ { backgroundColor: overviewColorBtn }}
@@ -122,11 +140,19 @@ const [geologyColorBtn, setGeologyColorBtn] = useState(null);
             >
               <span>03</span>SURFACE GEOLOGY
             </button>
-          </div>
+          </div> */}
+
+          {!isMobile && (
+            <ButtonsBox className="buttons-box"
+              overviewColorBtn={overviewColorBtn}
+              internalColorBtn={internalColorBtn}
+              geologyColorBtn={geologyColorBtn}
+              handleButton={handleButton}
+            />
+          )}
+
         </div>
       </div>
-    
-
 
       <div className="container-planet-facts">
         <div>

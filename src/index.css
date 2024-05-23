@@ -80,20 +80,25 @@ main {
   height: 100%;
   /* padding-bottom: 3rem; */
   padding: 0 2.5rem 3rem  2.5rem;
+ 
 }
 
 .flex {
   display: flex;
   justify-content: space-between;
-  /* width: 68rem; */
+  /* min-width: 68rem; */
   /* height: 42rem; */
   padding: 8rem 0 5.5rem 0;
+ 
 }
 
 .container-about-planet {
   width: 22rem;
   align-self: center;
+  margin-left: 8rem;
+  
 }
+
 
 .img-box {
   position: relative;
@@ -136,7 +141,6 @@ font-family: League Spartan;
   flex-direction: column;
   align-items: stretch;
   gap: 1rem;
-  
 }
 
 .buttons-box button {
@@ -267,6 +271,7 @@ header {
   justify-content: space-between; 
   align-items: center;
   /* padding: 0 1.5rem 0 1.5rem; */
+  margin-left: 0;
 }
 
 .planet-description {
@@ -351,5 +356,61 @@ width: 40%;
       display: flex;
       justify-content: space-between;
       list-style: circle;
+    }
+
+    
+    /* main {
+      position: relative;
+    }
+
+    .buttons-box {
+      width: 100vw;
+
+      position: absolute;
+      bottom: 97%;
+      flex-direction: row;
+      margin-top: 0;
+      justify-content: space-between;
+     
+    }
+
+    .buttons-box button {
+      border: none;
+      width: 100% ;
+      gap: 0;
+      padding: 0;
+
+    }
+
+    .buttons-box button span {
+      display: none;
+    }
+     */
+
+    .container-about-planet div {
+      width: 100%;
+      text-align: center;
+    }
+
+    .container-planet-facts {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .container-planet-facts div {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      
+
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    .buttons-box-mobile {
+     
     }
   }
